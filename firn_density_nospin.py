@@ -8,6 +8,7 @@ from writer import write_nospin_LIZ
 from writer import write_nospin_DIP
 from physics import *
 from constants import *
+import numpy as np
 
 class FirnDensityNoSpin:
     def __init__(self, configName):

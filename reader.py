@@ -3,7 +3,7 @@ import numpy as np
 from string import join
 from constants import *
 
-def read_temp(file):
+def read_temp(file, folder):
     '''
     Read in data for initial temperatures
 
@@ -12,9 +12,11 @@ def read_temp(file):
     :return input_temp: temperature vector from a specified csv file
     :return input_year_temp: corresponding time vector (in years)
     '''
+    # spot = os.path.dirname(sys.argv[0])
+    spot = os.getcwd()
 
     FID_temp        = os.path.join(spot, file)
-    data_temp       = np.genfromtxt(FIDtemp, delimiter=',')
+    data_temp       = np.genfromtxt(FID_temp, delimiter=',')
     input_year_temp = data_temp[0, :]
     input_temp      = data_temp[1, :]
     if input_temp[0] < 0.0:
@@ -33,7 +35,7 @@ def read_bdot(file):
     '''
 
     FID_bdot        = os.path.join(spot, file)
-    data_bdot       = np.genfromtxt(FIDbdot, delimiter=',')
+    data_bdot       = np.genfromtxt(FID_bdot, delimiter=',')
     input_year_bdot = data_bdot[0, :]
     input_bdot      = data_bdot[1, :]
 

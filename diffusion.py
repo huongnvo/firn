@@ -1,5 +1,6 @@
 from solver import transient_solve_TR
 from constants import *
+import numpy as np
 
 class Diffusion:
     def __init__(self, z, stp, gridLen, init_Tz):

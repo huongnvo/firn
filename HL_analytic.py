@@ -1,7 +1,7 @@
 from constants import *
 import numpy as np
 
-def HL_analytic(rhos0, h, THL, AHL):
+def hl_analytic(rhos0, h, THL, AHL):
     '''
     Model steady-state firn density and age profiles and bubble close-off, uses m w.e. a^-1
 

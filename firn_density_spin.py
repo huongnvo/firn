@@ -1,9 +1,11 @@
 from diffusion import Diffusion
+from hl_analytic import hl_analytic
 from reader import read_temp
 from reader import read_bdot
 from writer import write_spin
 from physics import *
 from constants import *
+import numpy as np
 
 class FirnDensitySpin:
     def __init__(self, configName):
@@ -40,7 +42,7 @@ class FirnDensitySpin:
         # set up the initial age and density of the firn column using herron & langway analytic
         THL = input_temp[0]
         AHL = input_bdot[0]
-        self.age, self.rho = HL_analytic(self.c['rhos0'], self.z, THL, AHL)
+        self.age, self.rho = hl_analytic(self.c['rhos0'], self.z, THL, AHL)
 
         # set up initial mass, stress, and mean accumulation rate
         self.mass  = self.rho * self.dz
