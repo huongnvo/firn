@@ -11,8 +11,18 @@ if __name__ == '__main__':
         configName = os.path.join(os.path.dirname(__file__), 'generic.json')
 
     if '-s' in sys.argv:
-        firn = FirnDensitySpin(configName)
-        firn.time_evolve()
+        spin = 'on'
     else:
-        firn = FirnDensityNoSpin(configName)
-        firn.time_evolve()
+        spin = 'off'
+
+    configSpin = {
+        'on'  : FirnDensitySpin
+        'off' : FirnDensityNoSpin
+    }
+
+    try:
+        firn = configSpin[spin](configName)
+    except KeyError:
+        default()
+
+    firn.time_evolve()
